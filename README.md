@@ -5,20 +5,8 @@
 
 # Tema 4. Programación Modular 
 
-[*1.	Introducción*](#_apartado1)
 
-[*2.	Subprogramas*](#_apartado2)
-
-[*3.	Paso de parámetros*](#_apartado3)
-
-[*4.	Ejemplo de función*](#_apartado4)
-
-[*5.	Parámetros por nombre*](#_apartado5)
-
-[*6.	Funciones delegadas y funciones lambda*](#_apartado6)
-
-
-# <a name="_apartado1"></a>1. Introducción.
+# <a id="_apartado1"></a>1. Introducción.
 
 La forma más razonable de encarar el desarrollo de un programa complicado es aplicar  lo  que  se  ha  dado  en  llamar  **Programación  Top  -  Down**  o  Programación descendente. 
 
@@ -42,7 +30,7 @@ Mantener  el  código  de  un  programa  que  está  estructurado  en  múltiple
 <br>
 <br>
 
-# <a name="_apartado2"></a>2. Subprogramas.
+# <a id="_apartado2"></a>2. Subprogramas.
 
 Un **subprograma**, también denominado **método** o **función**, es un conjunto de operaciones o sentencias identificado mediante un nombre único. Toda referencia o llamada a este nombre implica la **ejecución de las operaciones contenidas** en dicha función o procedimiento. 
 
@@ -83,7 +71,7 @@ Siguiendo la guía de estilo de Microsoft, en C# debemos utilizar para los nombr
 
 ### Ejemplo de función 
 
-El siguiente código crea una función denominada **cuadrado** que devuelve el cuadrado de un número entero (*int*): 
+El siguiente código crea una función denominada `Cuadrado` que devuelve el cuadrado de un número entero (*int*): 
 
 ```csharp
 // Función que devuelve el cuadrado de un valor.
@@ -220,7 +208,7 @@ private void btnVersion_Click(object sender, EventArgs e)
 <br>
 <br>
 
-# <a name="_apartado3"></a>3. Paso de parámetros
+# <a id="_apartado3"></a>3. Paso de parámetros
 
 Como  hemos  dicho  los  parámetros  son  la  forma  de  comunicación  entre  el programa principal y los subprogramas. Es la forma de **pasar datos** a las funciones o subprogramas. Estos parámetros pueden ser de *entrada*, de *salida* o de *entrada/salida*.  
 
@@ -239,7 +227,7 @@ A pesar de esta sutil diferencia, los términos *argumento* y *parámetro* a men
 
 - El número de argumentos que pasamos al llamar a la función debe coincidir con el número de parámetros que espera la función.  
   
-- El **orden de los argumentos influye**, es decir, al primer argumento se le asigna  el  primer  parámetro,  al  segundo  argumento  se  le  asigna  el segundo parámetro y así sucesivamente. Aunque, como veremos en el siguiente podemos pasar argumentos con nombre, indicando el nombre del parámetro como veremos en un apartado posterior. Esto se puede cambiar, como veremos más adelante, con los parámetros por nombre.
+- El **orden de los argumentos influye**, es decir, al primer argumento se le asigna  el  primer  parámetro,  al  segundo  argumento  se  le  asigna  el segundo parámetro y así sucesivamente. Aunque, como veremos, podemos pasar argumentos con nombre, indicando el nombre del parámetro tal y como se explica en un apartado posterior. 
 - El **tipo** del argumento debe coincidir con el tipo de parámetro al que esté asociado. 
   
 <br>
@@ -391,8 +379,9 @@ A continuación, os planteo varios posibles ejemplos.
 <hr>
 
 <br>
+<br>
 
-# <a name="_apartado4"></a>4. Ejemplo de creación de función
+# <a id="_apartado4"></a>4. Ejemplo de creación de función
 
 En este apartado vamos a resolver uno de los ejercicios que luego se plantean, paso a paso.
 
@@ -421,6 +410,8 @@ private void btnCalcular_Click(object sender, EventArgs e)
    MessageBox.Show($"El resultado de la potencia es: {vPotencia}");
 }
 ```
+
+<br>
 
 Vamos a pensar una posible solución **utilizando programación modular**, realizando una función sin parámetros, y que no devuelve valor. 
 
@@ -459,6 +450,8 @@ El problema es que haciéndolo de esta manera, la **función no es genérica**.
 - O si directamente queremos calcular la potencia de 5 elevado a 3.
 
 Pues tal y como tenemos planteada nuestra función, no lo podríamos hacer. Debemos tener en cuenta que nuestra función debe ser lo más genérica posible, para que se pueda utilizar de distintas formas.
+
+<br>
 
 Cuando definimos una función **debemos evitar leer los datos dentro de la misma y tambien debemos evitar mostrar los resultados**.
 
@@ -546,7 +539,7 @@ static void Main(string[] args)
 <br>
 <br>
 
-# <a name="_apartado5"></a>5. Argumentos por nombre y opcionales
+# <a id="_apartado5"></a>5. Argumentos por nombre y opcionales
 
 Como hemos estudiado en apartados anteriores, a la hora de llamar a una función el orden de los argumentos es fundamental a la hora de asignarlos a los parámetros de la función.
 
@@ -591,6 +584,8 @@ private void btnCalcular_Click(object sender, EventArgs e)
    MessageBox.Show($"El resultado de la potencia es: {vPotencia}");
 }
 ```
+
+<br>
 
 Existe la posibilidad de **tener parámetros opcionales** en una función. Para hacer un parámetro opcional (que deben ir detrás de los parámetros obligatorios), debemos darle un valor en la definición de la función.
 En el caso que en la llamada no pongamos algún argumento opcional, tomará el valor que hayamos puesto en la definición.
@@ -659,7 +654,7 @@ static void Main(string[] args)
 <br>
 <br>
 
-# <a name="_apartado6"></a>6.	Funciones delegadas y funciones lambda
+# <a id="_apartado6"></a>6.	Funciones delegadas y funciones lambda
 
 En C# existe la posibilidad de hacer que **una función tenga como parámetro otra función**, de manera que luego se pueda utilizar esa función pasada dentro.
 
@@ -729,6 +724,8 @@ private void btnCalcular_Click(object sender, EventArgs e)
 }
 ```
 
+<br>
+
 Lo que vamos a hacer a continuación, para entender el concepto de **delegado** y **función como parámetro** es crearlos:
 
 ```csharp
@@ -786,6 +783,8 @@ string EjecutarOperacionConFunc(int a, int b, Func<int, int, int> funcion)
 ```
 
 Al indicar `Func<int, int, int> funcion` estamos diciendo que `EjecutarOperacionConFunc` espera al ser llamada una función que devuelve un `int` y tiene dos `int` como parámetros.
+
+<br>
 
 ## Funciones lambda
 
